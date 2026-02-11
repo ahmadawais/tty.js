@@ -2,22 +2,61 @@
   "name": "tty.js",
   "description": "A terminal for your browser",
   "author": "Christopher Jeffrey",
-  "version": "0.2.15",
+  "version": "0.0.1",
   "license": "MIT",
-  "main": "./index.js",
-  "bin": "./bin/tty.js",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "tty.js": "./dist/cli.js"
+  },
   "man": "./man/tty.js.1",
-  "preferGlobal": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "static",
+    "man"
+  ],
   "repository": "git://github.com/chjj/tty.js.git",
   "homepage": "https://github.com/chjj/tty.js",
-  "bugs": { "url": "https://github.com/chjj/tty.js/issues" },
-  "keywords": ["tty", "terminal", "term", "xterm"],
-  "tags": ["tty", "terminal", "term", "xterm"],
-  "dependencies": {
-    "express": "3.4.4",
-    "socket.io": "0.9.16",
-    "pty.js": ">= 0.2.13",
-    "term.js": ">= 0.0.5"
+  "bugs": {
+    "url": "https://github.com/chjj/tty.js/issues"
   },
-  "engines": { "node": ">= 0.8.0" }
+  "keywords": [
+    "tty",
+    "terminal",
+    "term",
+    "xterm"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "express": "^4.21.2",
+    "node-pty": "^1.0.0",
+    "ora": "^8.2.0",
+    "picocolors": "^1.1.1",
+    "socket.io": "^4.8.1",
+    "xterm": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.1",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

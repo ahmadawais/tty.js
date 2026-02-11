@@ -1,4 +1,5 @@
 node_modules/
+dist/
 *.swp
 build/*
 .lock-wscript
@@ -7,3 +8,4 @@ Makefile.gyp
 *.Makefile
 *.target.gyp.mk
 *.node
+*.tsbuildinfo
